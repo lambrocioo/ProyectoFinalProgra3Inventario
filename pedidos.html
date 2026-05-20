@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Cola de Pedidos</h1>
+
+    <form action="/pedidos" method="POST">
+        <input type="text" name="producto" placeholder="Producto solicitado" required>
+        <input type="number" name="cantidad" placeholder="Cantidad" required>
+        <button type="submit">Agregar Pedido</button>
+    </form>
+
+    <h2>Pedidos pendientes</h2>
+
+    <ul>
+        {% for pedido in pedidos %}
+            <li>{{ pedido.producto }} - Cantidad: {{ pedido.cantidad }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/atender_pedido">Atender Primer Pedido</a>
+    <a href="/">Volver al inicio</a>
+</div>
+
+</body>
+</html>

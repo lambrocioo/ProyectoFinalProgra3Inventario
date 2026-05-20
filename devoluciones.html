@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Devoluciones</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Pila de Devoluciones</h1>
+
+    <form action="/devoluciones" method="POST">
+        <input type="text" name="producto" placeholder="Producto devuelto" required>
+        <input type="text" name="motivo" placeholder="Motivo de devolución" required>
+        <button type="submit">Registrar Devolución</button>
+    </form>
+
+    <h2>Devoluciones registradas</h2>
+
+    <ul>
+        {% for devolucion in devoluciones %}
+            <li>{{ devolucion.producto }} - Motivo: {{ devolucion.motivo }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/revisar_devolucion">Revisar Última Devolución</a>
+    <a href="/">Volver al inicio</a>
+</div>
+
+</body>
+</html>
